@@ -1,5 +1,22 @@
-@(message: String)
+@(drinks: Seq[models.Drink], messages: Seq[String])
 
 @main("Welcome Scalabucks Coffee") {
+    @messages.map { msg => 
+        <div class="alert alert-info">@msg</div>
+    }
     
+    @for(drink <- drinks) {
+        <div class="well">
+            <div class="container">
+            <div class="row">
+                <div class="span2">
+                    <img src="@routes.Assets.at("images/" + drink.kind + ".jpg")"/>
+                </div>
+                <div class="span10">
+                    <h2>@drink.name</h2> <a href="@routes.Application.buy(drink.id.get)" class="btn btn-success btn-large">$ @drink.price</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    }
 }
