@@ -9,7 +9,7 @@
             @helper.form(action = routes.Application.addDrinkSubmit) {
                 @helper.inputText(form("name"), '_label -> "Name", '_help -> "")
                 @helper.inputText(form("price"), '_label -> "Price", '_help -> "")
-                @helper.inputText(form("kind"), '_label -> "Kind", '_help -> "")
+                @helper.select(form("kind"), Seq(("espresso", "Espresso"), ("cappuccino", "Cappuccino"), ("latte", "Latte")), '_label -> "Kind", '_help -> "")
                 <button type="submit" class="btn btn-primary">Add</button>
             }
         </div>
